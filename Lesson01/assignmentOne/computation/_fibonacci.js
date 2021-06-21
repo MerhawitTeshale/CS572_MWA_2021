@@ -11,4 +11,4 @@ const fib=(number)=>{
     }
 }
 
-console.log(`the fibonacci of 17 is ${fib(17)}`);
+console.log(`the fibonacci of 25 is ${fib(25)}`);
