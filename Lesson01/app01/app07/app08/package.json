@@ -1,0 +1,21 @@
+{
+  "name": "app08",
+  "version": "1.0.0",
+  "description": "this is the first npm describtion",
+  "main": "app08.js",
+  "scripts": {
+    "start": "node app08",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MEAN"
+  ],
+  "author": "merhawit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.0.1"
+  }
+}
