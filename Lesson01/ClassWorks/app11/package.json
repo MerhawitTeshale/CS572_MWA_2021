@@ -1,0 +1,20 @@
+{
+  "name": "app11",
+  "version": "1.0.0",
+  "description": "request response based ecpress application",
+  "main": "index.js",
+  "scripts": {
+    "start":"node app11",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mean",
+    "node",
+    "ecpress"
+  ],
+  "author": "Merhawit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

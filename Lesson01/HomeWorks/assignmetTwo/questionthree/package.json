@@ -1,0 +1,15 @@
+{
+  "name": "questionthree",
+  "version": "1.0.0",
+  "description": "question 3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "app.js"
+  },
+  "author": "Merhawit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

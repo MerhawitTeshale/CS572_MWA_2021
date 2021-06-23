@@ -1,0 +1,15 @@
+{
+  "name": "app13",
+  "version": "1.0.0",
+  "description": "this is my mean games application",
+  "main": "app13.js",
+  "scripts": {
+    "start": "node app13",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merhawit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
