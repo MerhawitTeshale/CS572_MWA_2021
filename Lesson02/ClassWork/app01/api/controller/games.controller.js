@@ -22,6 +22,7 @@ module.exports.gamesGetAll=(req,res)=>{
    //this is blocking because it will block the next operations
    //const docs=collection.find()
    //make it non blocking
+   
     const docs=collection.find().skip(offset).limit(count).toArray((err,docs)=>{
         res.status(200).json(docs);
     });
