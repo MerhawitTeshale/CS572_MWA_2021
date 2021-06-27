@@ -1,0 +1,16 @@
+{
+  "name": "meancarcatalog",
+  "version": "1.0.0",
+  "description": "car review and detailes",
+  "main": "app01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Merhawit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.15",
+    "nodemon": "^2.0.7"
+  }
+}

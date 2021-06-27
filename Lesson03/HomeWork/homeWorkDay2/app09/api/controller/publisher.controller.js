@@ -5,6 +5,10 @@ const Game=mongoose.model("Game");
  const _addPublisher=function(req,res,game){
      console.log(`publisher name: ${req.body.name}`);
      console.log(`publisher address: ${req.body.address}`);
+
+     // another way of doing this if else 
+     //game.publisher.name=game.publisher?game.publisher:{};
+     game.publisher=game.publisher||{};
      game.publisher.name=req.body.name;
      game.publisher.address=req.body.address;
      //game.publisher.location.coordinates=[parseFloat(req.body.lng),parseFloat(req.body.lat)];

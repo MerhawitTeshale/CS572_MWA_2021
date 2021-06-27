@@ -1,0 +1,1 @@
+db.cars.insert({"name":"Cadillace", "Model":"Escalade", "year":"2018", engine:{"type":"V8","power":"420 hp","tansmission":"automatic","fuleEconomy":"0.16"},review:[{"name":"Yohannes","rate":5,"review":"it's the greatest car"},{"name":"Arsema", "rate":3,"review":"nice car but the fuel econemy is really bad"}]})

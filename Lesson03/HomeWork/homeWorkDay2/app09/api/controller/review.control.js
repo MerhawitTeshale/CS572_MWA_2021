@@ -66,7 +66,7 @@ module.exports.reviewgetAll=function(req,res){
             response.message=err;
         } else if (!review){
             response.status=400;
-            response.message={message:"publisher not found"}
+            response.message={message:"review not found"}
         }
         console.log(review);
         res.status(response.status).json(response.message);
@@ -74,7 +74,7 @@ module.exports.reviewgetAll=function(req,res){
 };
 
 module.exports.reviewUpdateOne=function(req,res){
-    console.log(`publisher update request recieved`);
+    console.log(`review update request recieved`);
     const gameId = req.params.gameId;
     if (gameId.length != 24) {
         console.log(`game Id is not valid lenght`);
@@ -111,8 +111,8 @@ module.exports.reviewUpdateOne=function(req,res){
             if(req.body.address){
             game.publisher.address=req.body.address;
         }
-            console.log(`publisher name ${req.body.name}`);
-            console.log(`publisher address ${req.body.address}`);
+            console.log(`reviewer name ${req.body.name}`);
+            console.log(`reviewer address ${req.body.address}`);
             //game.publisher = {};
 
             game.save(function (err, updatedGame) {
@@ -152,7 +152,7 @@ module.exports.reviewDeleteOne=function(req,res){
             //delete the publisher
 
             if(!game.review){
-                console.log(`could not find the publisher`);
+                console.log(`could not find the review`);
                 response.status=404;
             }
             const reviewId=req.params.reviewId;
@@ -163,9 +163,9 @@ module.exports.reviewDeleteOne=function(req,res){
                     message:game
                 }
                 if (err){
-                    console.log(`error delteing publisher`);
+                    console.log(`error delteing review`);
                     response.status=500;
-                    response.message={message:"couldnt delete publisher"};
+                    response.message={message:"couldnt delete review"};
                 }
                 res.status(response.status).json(response.message);
             });

@@ -1,5 +1,4 @@
 const express=require('express');
-const path=require('path');
 require('./api/data/database_connection');
 const router=require('./api/routes');
 const app=express();
