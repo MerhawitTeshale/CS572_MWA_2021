@@ -67,3 +67,52 @@ function config($routeProvider){
         templateUrl:"template/about.html"
     })
 }
+
+==============================================================
+
+ng-minLength="3"
+         ng-maxlength="10"
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ 
+   <script>
+    angular.module("myApp",[]).controller("MyController",MyController);
+    
+    function MyController(){
+      const vm=this;
+     vm.message="hello"
+     vm.isSubmitted=false
+     vm.add()=function(){
+       if(vm.myForm.$valid){
+         console.log("add to db")
+       }else{
+         vm.isSubmitted=true;
+       }
+     }
+    }
+  </script>
+<body ng-controller="MyController">
+ <form name="vm.myForm" ng-submit="vm.add()">
+  <input type="text" name="name" required 
+         ng-pattern="/^[0-9]{2,3}$/"
+          ng-model="name"/> {{name}}
+  </form>
+  <p> pristine:{{myForm.$pristine}}</p>
+   <p> dirty:{{myForm.$dirty}}</p>
+  <p> name is pristine:{{myForm.name.$pristine}}</p>
+    <p> name is dirty:{{myForm.name.$dirty}}</p>
+  <p> valid:{{myForm.name.$valid}}</p>
+  <p> invalid:{{myForm.name.$invalid}}</p>
+  
+  <span ng-show="myForm.name.$dirty && myForm.name.$invalid"> field required some rules</span>
+  
+  <button type="submit">submit </button>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+</body>
+</html>

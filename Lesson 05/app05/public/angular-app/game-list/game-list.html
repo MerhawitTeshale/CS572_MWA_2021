@@ -1,0 +1,23 @@
+<H1>
+    <!-- {{vm.title}} -->
+
+    <ul>
+        <li ng-repeat="game in vm.games">
+           <a ng-href="#!/games/{{game._id}}"> {{game.title}}</a>
+        </li>
+    </ul>
+    <form name='vm.gameForm' ng-submit="vm.addGame()">
+        add:
+        title:<input type="text" name="title" required ng-model="vm.newGameTitle"> <br>
+       Price <input type="text" name="price" required ng-model="vm.newGamePrice"><br>
+        year <input type="text" name="year" required ng-model="vm.newGameYear"><br>
+        rating<input type="text" name="rating" required ng-model="vm.newGameTitle"><br>
+        Min player<input type="text" name="minPlayers" 
+        required ng-model="vm.newGameMinPlayers" 
+        ng-pattern="/^[0-9]{1,2}$/"><br>
+        <span ng-show="vm.gameForm.minPlayers.$invalid && vm.gameForm.minPlayers.$invalid"> minimun players must be 1 and not 99</span>
+        max player<input type="text" name="maxPlayer" required ng-model="vm.newGameTitle"><br>
+        min age<input type="text" name="minAge" required ng-model="vm.newGameTitle">
+        designer:<input type="text" name="designer" required ng-model="vm.newGameTitle">
+    </form>
+</H1>

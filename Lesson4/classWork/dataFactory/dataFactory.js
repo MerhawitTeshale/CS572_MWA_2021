@@ -6,7 +6,7 @@ function verseFactory($http){
     };
 
     function getVerse($http){
-        return $http.get("https://www.abibliadigital.com.br/api/verses/nvi/sl/23")
+        return $http.get("https://collectionapi.metmuseum.org/public/collection/v1/departments")
                     .then(complete)
                     .catch(failed);
     };
