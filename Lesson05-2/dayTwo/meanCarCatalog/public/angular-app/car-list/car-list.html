@@ -1,0 +1,19 @@
+<H3>
+    {{vm.title}}
+</H3>
+<p ng-repeat="car in vm.cars">
+   <a ng-href="#!/cars/{{car._id}}">{{car.name}}</a> 
+</p>
+
+<form name="vm.carForm"ng-submit="vm.addCar()">
+    Car Brand: <input type="text" name="name" required ng-model="vm.newCarName" style="color:black"> <br>
+    Car Model: <input type="text" name="model" required ng-model="vm.newCarModel" style="color:black"> <br>
+    Manufactured Year: <input type="text" name="year" required ng-model="vm.newCarYear" style="color:black"> <br>
+     <!-- Type: <input type="text" name="type"  ng-model="vm.newCarEtype" style="color:black"> <br>
+     Power: <input type="text" name="power" required ng-model="vm.newCarEpower" style="color:black"> <br>
+    transmission: <input type="text" name="transnission" required ng-model="vm.newCarEtran" style="color:black"> <br>
+    Fuel Economy:<input type="text" name="fuelEconomy" required ng-model="vm.newCarEfuel" style="color:black"> <br> -->
+
+<button type="submit" class="btn-success"> ADD CAR</button>
+</form>
+<span>{{vm.message}}</span>

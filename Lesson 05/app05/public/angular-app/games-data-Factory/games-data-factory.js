@@ -15,9 +15,8 @@ function GamesDataFactory($http){
         return $http.get("/api/games/"+id).then(complete).catch(failed);
         
     }
-    function addOneGame(){
-        return $http.post("api/games",game).then(complete).catch(failed)
-
+    function addOneGame(game){
+        return $http.post("api/games",game).then(complete).catch(failed);
     }
     function complete(response){
         console.log(`this is the response from datafactory ${response.data}`)

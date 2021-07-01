@@ -10,6 +10,6 @@ function GameControler(GamesDataFactory){
     GamesDataFactory.getOne(gameId).then(function(response){
         console.log(`data returned in game display ${response}`);
         vm.game=response;
-        vm.stars=_getStarsArray(vm.game.rate);
+        vm.stars=_getStarsArray(response.rate);
     });
 }
