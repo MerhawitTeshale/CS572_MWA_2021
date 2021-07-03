@@ -1,0 +1,18 @@
+
+<h1> {{vm.job.title}} Details</h1>
+
+<div ng-if="vm.showDetaile">
+<p >
+    Salary: {{vm.job.salary|currency}} <br>
+    Describtion: {{vm.job.description}} <br>
+    Experience: {{vm.job.experience}} <br>
+    Skill: {{vm.job.skills}} <br>
+    Posted on: {{vm.job.postDate| date}} <br>
+    Address: {{vm.job.address}} <br>
+</p>
+<button ng-click="vm.editJob()" type="button" class="btn btn-primary">edit</button> 
+<button ng-click="vm.changeJob()" type="button" class="btn btn-warning">Change Job</button>
+<button ng-click="vm.deleteJob()" type="button" class="btn btn-danger">Delete</button>
+
+</div>
+ <span style>{{vm.message}}</span>

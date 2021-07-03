@@ -1,5 +1,3 @@
-const { query } = require('express');
-
 const mongoose = require('mongoose');
 const Game = mongoose.model("Game");
 

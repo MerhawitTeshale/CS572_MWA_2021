@@ -1,0 +1,29 @@
+<h1>{{vm.title}}</h1>
+
+<ul>
+    <li ng-repeat="job in vm.jobs">
+        <a ng-href="#!/jobs/{{job._id}}"> {{job.title}} </a>
+    </li>
+</ul>
+<button ng-show="vm.backButton"ng-click="vm.back()" type="button" class="btn btn-success">back</button>
+<button ng-show="vm.nextButton" ng-click="vm.next()" type="button" class="btn btn-success">next</button> <br> <br>
+
+<hr>
+<button ng-if="vm.showButton" ng-click="vm.addButton()" class="btn btn-dark"> ADD JOB</button>
+<div ng-if="vm.showForm" class="form-group has-success">
+    Add new Job Openning:
+    <form name="vm.jobForm" ng-submit="vm.addJob()">
+        Job Title: <input  name="title" required ng-model="vm.newJobTitle" class="form-control" type="text" placeholder="Title" > <br>
+        Salary: <input name="Salary"  required ng-model="vm.newJobSalary"class="form-control" type="text" placeholder="Salary" > <br>
+        Description:<input  name="description" required ng-model="vm.newJobDescription" class="form-control" type="text" placeholder="Description"> <br>
+        Experience:<input  name="experience" required ng-model="vm.newJobExperience" class="form-control" type="text" placeholder="Experience"> <br>
+        Skills:<input  name="skills"  required ng-model="vm.newJobSkills" class="form-control" type="text" placeholder="Skills"> <br>
+        Address:<input  name="address" required ng-model="vm.newJobAddress" class="form-control" type="text" placeholder="Address"> <br>
+        <button type="submit" class="btn btn-success ">Save</button>
+    </form>
+</div>
+<div >
+    <h3>
+    {{vm.message}}
+    </h3>
+</div>
