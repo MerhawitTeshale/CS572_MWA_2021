@@ -15,15 +15,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#!/jobs">jobs</a>
           </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="#!/register">Register</a>
+          </li> 
         </ul>
-        <form ng-controller="SearchController as vm"  ng-submit="vm.search()" ng-model="searchText"  class="d-flex">    
-          <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <form ng-controller="SearchController as vm"    ng-submit=" vm.search()" class="d-flex">    
+          <input class="form-control me-sm-2" type="text" ng-model="vm.searchText" placeholder="Search">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> <br> <br>
-          <!-- <span ng-repeat="job in vm.jobs ">{{job.title | filter:searchText}}</span> -->
         </form>
-       
       </div>
     </div>
   </nav>
 
   
+  <span ng-repeat="job in vm.jobs ">{{job.title}}</span>

@@ -1,5 +1,18 @@
 <h1>MEAN JOB HOME PAGE </h1>
 
+<div class="col-xs-6" ng-controller="LoginController as vm">
+  <form ng-if="!vm.isLoggedIn()"  class="form-group" role="login" ng-submit="vm.login()">
+      <div class="form-group" ng-class="{'has-error': vm.err}">
+          <input type="text"  class="form-control" placeholder="Username" ng-model="vm.username"
+              autocapitalize="none">
+      </div>
+      <div class="form-group" ng-class="{'has-error': vm.err}">
+          <input type="password"  class="form-control" placeholder="Password"
+              ng-model="vm.password" autocapitalize="none">
+      </div>
+      <button type="submit" class="btn btn-sm btn-success">Login</button>
+  </form>
+</div>
 <p> <a ng-href="#!/jobs">
     show job list </a>
 </p>

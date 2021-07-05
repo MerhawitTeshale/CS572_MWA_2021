@@ -1,0 +1,16 @@
+
+<h1> {{vm.city.city}} Details</h1>
+
+<div ng-if="vm.showDetaile">
+<p >
+    State: {{vm.city.state}} <br>
+    Zip: {{vm.city.zip}} <br>
+    Location: {{vm.city.loc}} <br>
+    Population: {{vm.city.pop}} <br>
+</p>
+<button ng-click="vm.deleteCity()" type="button" class="btn btn-danger">Delete City</button>
+   
+</div>
+
+
+ 

@@ -1,0 +1,24 @@
+
+<h1>{{vm.title}}</h1>
+<div >
+    <h3>
+    You want to do Geo Search?
+    </h3>
+    <p>please provide lon and lat </p>
+    <form ng-submit="vm.search()">
+        lng:<input class="form-control me-sm-2" type="text" placeholder="lng" name="lng"ng-model="vm.lng">
+        lat:<input class="form-control me-sm-2" type="text" placeholder="lat" name="lat" ng-model="vm.lat"> 
+        How Far do you want to Search:<input class="form-control me-sm-2" type="text" placeholder="distance" name="far" ng-model="vm.far"> 
+        <button class="btn- btn-secondary my-2 my-sm-0" type="submit">Search</button> 
+    </form>
+    <hr>
+    <br>
+    <h1> CITIES </h1>
+    <ul>
+        <li ng-repeat="city in vm.cities">
+        <a ng-href="#!/cities/{{city._id}}"> {{city.city}}</a>
+        </li>
+        </ul>
+
+</div> 
+

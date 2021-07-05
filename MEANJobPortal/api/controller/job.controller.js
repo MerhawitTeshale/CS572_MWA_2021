@@ -28,7 +28,7 @@ module.exports.getAllJobs = (req, res) => {
         console.log(`count is 2 ${count}`)
     }
     //limit check
-    if (count-offset > maxCount) {
+    if (count > maxCount) {
         console.log(`limit for count is exxeeced`);
         response.status = 400;
         response.message = { message: `count exceed count of ${maxCount}` };
@@ -60,7 +60,7 @@ module.exports.getAllJobs = (req, res) => {
 
 //get one job
 module.exports.getOneJob = (req, res) => {
-    console.log(`get request for one game recieved`);
+    console.log(`get request for one job recieved`);
     const jobId = req.params.id;
     if (!jobId.length == 24) {
         console.log(`job id not valid`);
@@ -72,7 +72,7 @@ module.exports.getOneJob = (req, res) => {
             message: job
         };
         if (err) {
-            console.log(`error occured searching for a game`);
+            console.log(`error occured searching for a job`);
             response.status = 500;
             response.message = err;
         } else if (!job) {
@@ -94,7 +94,6 @@ module.exports.jobsAddOne = (req, res) => {
         salary: parseFloat(req.body.salary),
         description: req.body.description,
         experience: req.body.experience,
-        //how to add skills
         skills:req.body.skills,
         address: req.body.address
         // location:{
@@ -105,7 +104,7 @@ module.exports.jobsAddOne = (req, res) => {
 
     Job.create(newJob, (err, job) => {
         const response = {
-            status: 200,
+            status: 201,
             message: job
         }
         if (err) {
@@ -160,7 +159,7 @@ module.exports.fullUpdateJob = (req, res) => {
     }
     Job.findById(jobId).exec((err, job) => {
         const response = {
-            status: 201,
+            status: 204,
             message: job
         };
 
@@ -176,7 +175,7 @@ module.exports.fullUpdateJob = (req, res) => {
             job.title = req.body.title;
             job.salary = parseFloat(req.body.salary);
             job.description = req.body.description;
-            job.exprience = req.body.exprience;
+            job.experience = req.body.exprience;
             job.skills = req.body.skills;
             job.address = req.body.address;
 
@@ -209,7 +208,7 @@ module.exports.PartialUpdateJob = (req, res) => {
     }
     Job.findById(jobId).exec((err, job) => {
         const response = {
-            status: 201,
+            status: 204,
             message: job
         };
 
@@ -255,5 +254,25 @@ module.exports.PartialUpdateJob = (req, res) => {
                 res.status(response.status).json(response.message);
             });
         }
+    });
+};
+
+//search
+module.exports.searchJob=(req,res)=>{
+    console.log(`search initiated`);
+    const search=req.query.search;
+    Job.find({"title":search}).exec((err,jobs)=>{
+        const response ={
+            status:200,
+            messagge:jobs
+        }
+        if(err){
+            response.status=500,
+            response.messagge=err
+        } else if(!job){
+            response.status=400,
+            response.messagge={message:"No Data Found"};
+        }
+        res.status(response.status).json(response.messagge);
     });
 };

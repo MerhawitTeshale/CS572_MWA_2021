@@ -5,6 +5,8 @@ const router = express.Router();
 
 //import controllers
 const controllerJobs = require('../controller/job.controller');
+const controllerSkill=require('../controller/skill.controller');
+const controllerUsers=require('../controller/user.controller');
 //specify routes
 
 //path for job
@@ -15,6 +17,16 @@ router.route('/jobs/:id').get(controllerJobs.getOneJob)
                             .patch(controllerJobs.PartialUpdateJob)
                             .delete(controllerJobs.deleteJob);
 
+//path for skill
+router.route('/jobs/:id/skills').get(controllerSkill.getAllSkills)
+                                .post(controllerSkill.addSkill);
+router.route('/jobs/:id/skills/:skillId').delete(controllerSkill.delteSkill);
 
+//path for searching job
+router.route('/jobs/search').get(controllerJobs.searchJob);
+
+//user ApI
+router.route('/users/register').post(controllerUsers.register);
+router.route('/users/login').post(controllerUsers.login);
 //export
 module.exports = router;

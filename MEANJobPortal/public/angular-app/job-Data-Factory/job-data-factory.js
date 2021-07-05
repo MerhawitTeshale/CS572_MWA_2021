@@ -8,7 +8,9 @@ function JobDataFactory($http){
         addOne:addOneJob,
         delete:deleteJob,
         fullUpdate:fullUpdateJob,
-        partialUpdate:partialUpdateJob
+        partialUpdate:partialUpdateJob,
+        search:searchJob,
+        addSkill:addSkillToJob
     }
 
     function getAllJobs(){
@@ -30,11 +32,18 @@ function JobDataFactory($http){
     function deleteJob(id){
         return $http.delete('api/jobs/'+id).then(complete).catch(failed);
     }
-    function fullUpdateJob(id){
-        return $http.put('api/jobs/'+id).then(complete).catch(failed);
+    function searchJob(searchIp){
+        console.log(`am i here?`)
+        return $http.get('api/jobs/search?search='+searchIp).then(complete).catch(failed);
     }
-    function partialUpdateJob(id){
-        return $http.patch('api/jobs/'+id).then(complete).catch(failed);
+    function fullUpdateJob(id,updatedJob){
+        return $http.put('api/jobs/'+id, updatedJob).then(complete).catch(failed);
+    }
+    function partialUpdateJob(id,updatedJob){
+        return $http.patch('api/jobs/'+id,updatedJob).then(complete).catch(failed);
+    }
+    function addSkillToJob(id,skill){
+        return $http.post('api/jobs/'+id+'/skills',skill);
     }
 
     function complete(response){

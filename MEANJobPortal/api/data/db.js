@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 
 //require the model
 require("./job-model");
+require("./user-model");
 
 
 const dbName="meanJobs";
