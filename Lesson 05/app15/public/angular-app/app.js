@@ -24,8 +24,8 @@ function config($routeProvider,$httpProvider) {
         access:{restricted:false}
     }).when("/profile", {
         templateUrl: "angular-app/profile/profile.html",
-        // controller: "",
-        // controllerAs: "",
+        controller: "UploadContoller",
+        controllerAs: "vm",
         access:{restricted:true}
     }).otherwise({
         redirectTo: "/"

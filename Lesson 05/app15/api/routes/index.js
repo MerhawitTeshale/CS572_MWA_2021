@@ -3,7 +3,12 @@ const express= require('express');
  const controllerGames=require("../controller/games.controller");
  const controllerPublisher=require("../controller/publisher.controller");
 const controllerReview=require("../controller/review.control");
-const controllerUsers=require("../controller/users.controller")
+const controllerUsers=require("../controller/users.controller");
+///////////
+const controllerFile=require('../controller/fileExtraction.contorller');
+
+
+router.route('/extract').post(controllerFile.extractzip);
 //games API
  router.route('/games').get(controllerGames.gamesGetAll)
                         .post(controllerUsers.authenticate,controllerGames.gamesAddOne);
@@ -28,4 +33,6 @@ router.route('/games/:gameId/reviews/:reviewId').put(controllerUsers.authenticat
 //user API
 router.route('/users/register').post(controllerUsers.register);
 router.route('/users/login').post(controllerUsers.login);
- module.exports=router;
+ 
+//export
+module.exports=router;

@@ -1,0 +1,28 @@
+
+<div class="container">
+<h2>{{title}}</h2>
+ <ul >
+    <li *ngFor="let game of games">
+        <a routerLink="/game/{{game._id}}"> {{game.title}}</a> <br>
+    </li>
+ </ul> 
+ <hr>
+   <div ng-if="isLoggedIn()">
+ <form name="gameForm" ng-submit="addGame()">
+ add new game: <br>
+ Title: <input type="text" name="title" required ng-model="newGameTitle" style="color:black"> <br>
+ Price: <input type="text" name="price" required ng-model="newGamePrice" style="color:black"> <br>
+ Year of Publication:<input type="text" name="year" required ng-model="newGameYear" style="color:black"> <br>
+ Rating: <input type="text" name="rating" required ng-model="newGameRating" style="color:black"> <br>
+ <span ng-show="gameForm.rating.$invalid && gameForm.rating.$dirty"> field only takes number ranging from 0-5</span>
+ Minimum Players: <input type="text" name="minPlayers" required ng-model="newGameMinPlayers" style="color:black"> <br>
+ Maximum Players: <input type="text" name="maxPlayers" required ng-model="newGameMaxPlayers" style="color:black"> <br>
+ Min Age Recommended: <input type="text" name="minAge" required ng-model="newGameMinAge" style="color:black"> <br>
+ Designer Name: <input type="text" name="designers" required ng-model="newGameDesigner" style="color:black"> <br>
+ 
+ <button type="submit" class="btn-success">ADD GAME</button>
+ </form>
+ <span>{{message}}</span>
+ </div>
+
+   </div>

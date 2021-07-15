@@ -1,0 +1,8 @@
+{
+    //if we dont wont to see the js files created using ts
+    //write tsc in the terminal and a dir called output and all js files go there
+    "compilerOptions": {
+        "target": "ES5",//the version of js we want can be written here 
+        "outDir": "output"
+    }
+}

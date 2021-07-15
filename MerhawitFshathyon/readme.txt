@@ -10,7 +10,7 @@ npm start or nodemon should work
 -----------------------------------------------------------------------------------------------------
 Database information:
 Name of the database: meanCities
-collection name:cities
+
 ------------------------------------------------------------------------------------------------------
 features implemented 
 - get ALl cities with pagination
@@ -22,11 +22,6 @@ features implemented
 **********
 extra Credit
 add a new city with out location is done only back end
-
-
-
-
-
 --------------------------------------------------------------------------------------------------------
 remark:
 
