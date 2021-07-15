@@ -1,18 +1,14 @@
 <div class="container">
-<H2>Information About The Game:
-    <p> {{game.title}} 
-       <!-- <span *ngFor="let star in stars" 
-      class="glyphicon glyphicon-star">{{star}}</span> -->
-   </p>
-</H2>
-
- <p >Price: {{game.price}} <br>
-    Year: {{game.year}} <br>
-    Palyers:<br> 
-    Minimum: {{game.minPlayers}} <br>
-    Maximum: {{game.maxPlayers}} <br> 
-    Recommended Age: {{game.minAge}} <br>
-    Designer: {{game.designers}} <br>
-    </p>
-
-   </div>
+<h1>Information about :
+   <p>{{game.title}} <span *ngFor="let star of stars track by $index">&#9733;</span></p> 
+</h1>
+<p>
+    Title:{{game.title}} <br/>
+    Price:{{game.price | currency}}<br/>
+    Minimum Players: {{game.minPlayers}}<BR/>
+    Maximum Players: {{game.maxPlayers}}<BR/>
+    Minimum Age: {{game.minAge}}<br/>
+        
+</p>
+<button ng-click="vm.deleteGame()" class="btn-danger"> DELETE</button>
+</div>

@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  title="Mean Games"
+  number=5;
 
-  title="Angular MEAN Games"
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

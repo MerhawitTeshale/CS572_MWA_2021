@@ -4,6 +4,7 @@
   "description": "car review and detailes",
   "main": "app01.js",
   "scripts": {
+    "start": "node app01",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Merhawit",

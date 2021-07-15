@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meanJobs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MEAN Job Search</title>
+    <link rel="stylesheet" href="./css/bootstrap.min .css">
+    <link rel="stylesheet" href="./css/custom.css">
+
+    
+</head>
+<body>
+
+
+    <jobs-navigation></jobs-navigation>
+    <div class="container">
+    <div ng-view></div>
+    </div>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="./angular-app/app.js"></script>
+    <script src="./angular-app/navigation/navigation-controller.js"></script>
+    <script src="./angular-app/job-list/job-list-contoller.js"></script>
+    <script src="./angular-app/job-Data-Factory/job-data-factory.js"></script>
+    <script src="./angular-app/job-display/job-display-contoller.js"></script>
+    <script src="./angular-app/search/search-controller.js"></script> 
+    <script src="./angular-app/register/register-controller.js"></script>
+    <script src="./angular-app/login/login-controller.js"></script>
+    <script src="./angular-app/job-Data-Factory/users-data-factory.js"></script>
+    <script src="./angular-app/authentication/auth-contoller.js"></script>
+    <script src="./angular-app/authentication/auth-interceptor.js"></script>
+    <script src="../node_modules/angular-jwt/dist/angular-jwt.js"></script>
+</body>
+</html>

@@ -1,61 +1,41 @@
-//system import
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 
-//application import
-import {Game} from "./games-list/games-list.component";
-import { Credentials } from './authentication.service';
-
+import {Game} from './games-list/games-list.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesDataService {
 
-  private apiBaseUrl:string="http://localhost:3000/api";
-//it like us declaring a private variable
   constructor(private http:HttpClient) { }
-
-  public getGames(): Promise<Game[]>{
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+        })
+  };
+  private apiBaseUrl:string="http://localhost:3000/api"
+  public getGames():Promise<Game[]>{
     const url:string=this.apiBaseUrl+"/games";
-    return this.http.get(url).toPromise()
-    //this is casting response=> response as Game[]
-          .then(response=> response as Game[])
-          .catch(this.handleError);
+    return this.http.get(url).toPromise() ///http.get(url) returns observable
+    .then(response=>response as Game[]).catch(this.handleError); // then and catch are for converting the observable to promise
   }
-  public getGame(gameId:string): Promise<Game>{
+
+  public getGame(gameId:string):Promise<Game>{
     const url:string=this.apiBaseUrl+"/games/"+gameId;
-    return this.http.get(url).toPromise()
-    //this is casting response=> response as Game[]
-          .then(response=> response as Game)
-          .catch(this.handleError);
-  }
-  private handleError (error:any):Promise<any>{
-    console.log(`sth went wrong ${error}`);
-    return Promise.reject(error.message||error);
-    
+    return this.http.get(url).toPromise() ///http.get(url) returns observable
+    .then(response=>response as Game).catch(this.handleError); // then and catch are for converting the observable to promise
   }
 
-
-  ////user servcoe
-  //Promise<unkonwn> should be the return type
-  public login(credentials:Credentials):any{
-    //1- build the url
-    const url:string=this.apiBaseUrl+"users/login";
-    //2- tell http to make a request 
-    //3- convert the observable to promise
-    this.http.post(url,credentials).toPromise()
-    .then(this.loginDone).catch(this.handleLoginError);
+  public addNewGame(game:Game):Promise<Game[]>{
+    const url:string=this.apiBaseUrl+"/games";
+     return this.http.post<Game>(url, game,this.httpOptions).toPromise()
+     .then(response=>response as Game).catch(this.handleError); 
   }
 
-  private loginDone(response:unknown):unknown{
-    console.log(`login Done`);
-    return response;
-    
-  }
-  private handleLoginError(err:unknown):unknown{
-    console.log(`error login`);
-    return {};
+  private handleError(err:any):Promise<any>{
+    console.log("Something went wrong", err);
+    return Promise.reject(err.message||err)
     
   }
 }

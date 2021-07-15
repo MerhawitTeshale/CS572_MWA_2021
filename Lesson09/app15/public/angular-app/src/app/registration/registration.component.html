@@ -1,31 +1,34 @@
+<div class="container">
 <H1> Register</H1>
 
-<!-- <DIV  class="alert alert-success" role="alert">
-    <P>{{ vm.message}}</P>
-</DIV> -->
-<!-- <DIV ng-if="vm.err" class="alert alert-danger" role="alert">
-    {{vm.err}}
-</DIV> -->
-<FORM class="container" name="register" >
+<DIV *ngIf="message" class="alert alert-success" role="alert">
+    <P>{{ message}}</P>
+</DIV>
+<DIV *ngIf="err" class="alert alert-danger" role="alert">
+    {{err}}
+</DIV>
+<!-- <FORM ng-hide="vm.message" name="register" ng-submit="vm.register()"> -->
+<form  *ngIf="!message" (ngSubmit)="onSubmit()" #gameForm="ngForm">
     <DIV class="form-group">
         <label for="username">Username</label>
-        <input type="username" class="form-control" id="username" placeholder="Username" ng-model="vm.username"
+        <input type="username" class="form-control" id="username" placeholder="Username" name="username" [(ngModel)]="model.username"
             autocapitalize="none" />
     </DIV>
     <DIV class="form-group">
         <label for="name">name</label>
-        <input type="name" class="form-control" id="name" placeholder="name" ng-model="vm.name"
+        <input type="name" class="form-control" id="name" placeholder="name" name="name" [(ngModel)]="model.name"
             autocapitalize="none" />
     </DIV>
     <DIV class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.password"
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="model.password"
             autocapitalize="none" />
     </DIV>
     <DIV class="form-group">
         <label for="password-repeat">Repeat Password</label>
-        <input type="password" class="form-control" id="password-repeat" placeholder="Password"
-            ng-model="vm.passwordRepeat" autocapitalize="none" />
+        <input type="password" class="form-control" id="password-repeat" placeholder="Password" name="repeatedPass"
+        [(ngModel)]="model.repeatedPass" autocapitalize="none" />
     </DIV>
     <BUTTON type="submit" class="btn btn-success">Register</BUTTON>
-</FORM>
+</form>
+</div>

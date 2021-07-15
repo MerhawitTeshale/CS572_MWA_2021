@@ -1,0 +1,79 @@
+<br />
+<!-- <form #gameForm="ngForm"> -->
+
+<!-- <form name="gameForm" ng-submit="onSubmit()">
+
+    <strong>To add a new game please fill the form: </strong><br>
+    <DIV class="form-group">
+    Title:
+      <input type="text" name="title" class="form-control"  required ng-model="vm.newGameTitle" style="color:black"> 
+    </DIV>
+    <DIV class="form-group">
+      Price:
+      <input type="text" name="price" class="form-control" required ng-model="vm.newGamePrice" style="color:black"> 
+    </DIV>
+    <DIV class="form-group">
+    Year of Publication:
+      <input type="text" class="form-control" name="year" required ng-model="vm.newGameYear" style="color:black"> 
+    </DIV>
+    <DIV class="form-group">
+      Rating:
+       <input type="text" name="rating"  class="form-control" required
+                                    ng-pattern="/^[0-5]{1,1}$/"
+                                    ng-model="vm.newGameRating" style="color:black"> 
+    </DIV>
+    <DIV class="form-group">
+      Minimum Players:
+     <input type="text" class="form-control"  name="minPlayers" required ng-model="vm.newGameMinPlayers" style="color:black"> 
+    </DIV>
+     <DIV class="form-group">
+      Maximum Players:
+     <input type="text" class="form-control" name="maxPlayers" required ng-model="vm.newGameMaxPlayers" style="color:black">
+    </DIV>
+     <DIV class="form-group">
+     Minimum Recommended Age:
+      <input type="text" class="form-control" name="minAge" required ng-model="vm.newGameMinAge" style="color:black"> 
+      
+      </DIV>
+      <DIV class="form-group">
+        Designer Name:
+        <input type="text" class="form-control" name="designers" required ng-model="vm.newGameDesigner" style="color:black"> 
+    </DIV>
+    <button type="submit" class="btn-success">ADD GAME</button>
+    </form> -->
+<form (ngSubmit)="onSubmit()" #gameForm="ngForm">
+  <DIV class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" class="form-control" id="title" required [(ngModel)]="model.title" #title="ngModel" style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Price:
+    <input type="text" name="price" class="form-control" required [(ngModel)]="model.price" style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Year of Publication:
+    <input type="text" class="form-control" name="year" required [(ngModel)]="model.year" style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Rating:
+    <input type="text" name="rating" class="form-control" required ng-pattern="/^[0-5]{1,1}$/"
+    [(ngModel)]="model.rate" style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Minimum Players:
+    <input type="text" class="form-control" name="minPlayers" required [(ngModel)]="model.minPlayers"
+      style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Maximum Players:
+    <input type="text" class="form-control" name="maxPlayers" required [(ngModel)]="model.maxPlayers"
+      style="color:black">
+  </DIV>
+  <DIV class="form-group">
+    Minimum Recommended Age:
+    <input type="text" class="form-control" name="minAge" required [(ngModel)]="model.minAge" style="color:black">
+
+  </DIV>
+  <button type="submit" class="btn-success">ADD GAME</button>
+
+</form>

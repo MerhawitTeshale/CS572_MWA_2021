@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">MeanGames</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item active"><a class="nav-link" routerLink="/">Home</a></li>
+            <li class="nav-item active"><a class="nav-link" href="games">Games</a></li>
+            <li><a *ngIf="!isLogedIn()" class="nav-link" href="register">Register</a></li>
+            <li><a *ngIf="isLogedIn()" class="nav-link" href="profile">Profile</a></li>
+    
+        </ul>
+        <!-- <div class="col-xs-6">
+            <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
+                <div class="form-group" ng-class="{'has-error': vm.err}">
+                    <input type="text" class="form-control input-sm" placeholder="Username" ng-model="vm.username"
+                        autocapitalize="none">
+                </div>
+                <div class="form-group" ng-class="{'has-error': vm.err}">
+                    <input type="password" class="form-control input-sm" placeholder="Password"
+                        ng-model="vm.password" autocapitalize="none">
+                </div>
+                <button type="submit" class="btn btn-sm btn-success">Login</button>
+            </form>
+        </div>
+        <ul ng-if="vm.isLoggedIn()" class="new navbar-nav navbar-right">
+            <li>
+                <p class="navbar-text">Welcome {{vm.loggedinUser}}</p>
+            </li>
+            <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+        </ul> -->
+    
+        <!-- <div class="col-xs-6"> -->
+            <form *ngIf="!isLogedIn()" class="d-flex" role="login" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group" ng-class="{'has-error': vm.err}">
+                    <input type="text" class="form-control input-sm" name="username" placeholder="Username" [(ngModel)]="model.username"
+                        autocapitalize="none">
+                </div>
+                <div class="form-group" ng-class="{'has-error': vm.err}">
+                    <input type="password" class="form-control input-sm"  name="password" placeholder="Password"
+                    [(ngModel)]="model.password" autocapitalize="none">
+                    <!-- <input type="password" class="form-control" name="password" required [(ngModel)]="model.password" style="color:black"> -->
+
+                </div>
+                <button type="submit" class="btn btn-sm btn-success">Login</button>
+            </form>
+        <!-- </div> -->
+        <ul *ngIf="isLogedIn()" class="d-flex" class="new navbar-nav navbar-right">
+            <li *ngIf="isLogedIn()">
+                <p class="navbar-text">Welcome {{name}} </p>
+            </li>
+            <li *ngIf="isLogedIn()"><button class="btn btn-sm btn-success" (click)="logout()">Logout</button></li>
+        </ul>
+    </div>
+    </nav>
